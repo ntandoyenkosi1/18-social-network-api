@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("../db/connection");
 //email validation
 const User = mongoose.model("User", {
   username: {
@@ -13,7 +13,7 @@ const User = mongoose.model("User", {
     unique:true,
     validate: {
       validator: function(v) {
-        return /\d{3}-\d{3}-\d{4}/.test(v);
+        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(v);
       },
       message: props => `${props.value} is not a valid email!`
     },

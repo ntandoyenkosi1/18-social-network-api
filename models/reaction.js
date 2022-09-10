@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-//email validation
+const mongoose = require("../db/connection");
+
 const Reaction = mongoose.model("Reaction", {
   reactionId: {
     type: new mongoose.Types.ObjectId
