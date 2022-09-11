@@ -1,8 +1,9 @@
 const mongoose = require("../db/connection");
 
-const Reaction = mongoose.model("Reaction", {
+const Reaction = mongoose.model("Reaction", new mongoose.Schema({
   reactionId: {
-    type: new mongoose.Types.ObjectId
+    type: String,
+    default:new mongoose.Types.ObjectId
   },
   reactionBody: {
     type: String,
@@ -13,5 +14,5 @@ const Reaction = mongoose.model("Reaction", {
     type: String,
     required: [true, "The username is required"]
   }
-}, { timestamps: true });
+}, { timestamps: true }));
 module.exports = Reaction;
